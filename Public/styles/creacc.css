@@ -1,0 +1,145 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'League Spartan', Arial, sans-serif;
+}
+
+/* Animated Background */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #FFDD44, #FF8C33, #ec7d64, #FFDD44);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s ease infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Container */
+.container {
+    text-align: center;
+}
+
+/* Title Styling */
+.title {
+    font-size: 4rem; /* Large Title */
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+/* Create Account Box */
+.create-account-box {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 12px 12px 0px #4C3A2C;
+    text-align: left;
+    display: inline-block;
+    width: 400px; /* Bigger Box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.create-account-box:hover {
+    transform: scale(1.05); /* Slightly scale up */
+    box-shadow: 16px 16px 0px #4C3A2C; /* Bigger Shadow */
+}
+
+/* Heading Inside Create Account Box */
+h2 {
+    margin-bottom: 1.5rem;
+    color: #000;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin: 0.8rem 0 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #FFDD44;
+    border-radius: 8px;
+    background-color: #FFDD44;
+    color: #000;
+    font-weight: bold;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Input Focus Effect */
+input:focus {
+    border-color: #FF8C33;
+    background-color: #FFE699;
+}
+
+/* Create Account Button */
+.create-account-btn {
+    background: #FF3B3B;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.8rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto 0;
+    transition: background 0.3s ease;
+}
+
+/* Button Hover */
+.create-account-btn:hover {
+    background: #e33131;
+}
+
+/* New User Section */
+.existing-user {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+}
+
+.existing-user a {
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+}
+
+.existing-user a:hover {
+    text-decoration: underline;
+}
+.password-message {
+    font-size: 14px;
+    color: red;
+    margin-top: 5px;
+}
+.password-message.match {
+    color: green;
+}
+

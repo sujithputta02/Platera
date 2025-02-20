@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="/Public/styles/confirmation.css">
+    <link rel="icon" href="/Public/websiteimages/platera favicon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="checkmark">
+            <div class="circle">
+                <div class="tick">✔</div>
+            </div>
+        </div>
+
+        <h1>Your Table is confirmed Successfully</h1>
+
+        <!-- Booking Details -->
+        <div class="details slide-up">
+            <p><strong>Customer Name:</strong> <span id="customerName"></span></p>
+            <p><strong>Booking-ID:</strong> <span id="bookingID"></span></p>
+            <p><strong>Restaurant Name:</strong> <span id="restaurantName"></span></p>
+            <p><strong>Restaurant Location:</strong> <span id="restaurantLocation"></span></p>
+            <p><strong>Table Numbers:</strong> <span id="selectedTables"></span></p>
+            <p><strong>Booking Date:</strong> <span id="bookingDate"></span></p>
+            <p><strong>Booking Time:</strong> <span id="bookingTime"></span></p>
+            <br>
+            <div class="qr-container">
+                <div id="qrcode" class="qr"></div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <button id="goToHomepage">Go to Homepage</button>
+            <button id="printInvoice">Generate Invoice</button>
+        </div>
+    </div>
+    <script src="/Public/javascript/confirmation.js"></script>
+</body>
+</html>
