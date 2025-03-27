@@ -6,8 +6,8 @@ const coupleBooked = document.getElementById('coupleBooked');
 const slotsBooked = document.getElementById('slotsBooked');
 const totalSlots = document.getElementById('totalSlots');
 
-let selectedFamilyTables = []; // Changed to an array to allow multiple selections
-let selectedCoupleTables = []; // Changed to an array to allow multiple selections
+let selectedFamilyTables = []; 
+let selectedCoupleTables = []; 
 let familyBookings = 0;
 let coupleBookings = 0;
 let totalBookings = 0;
@@ -24,15 +24,15 @@ tables.forEach(table => {
         // Handle selection logic based on the sector
         if (sector === 'family') {
             if (selectedFamilyTables.includes(tableNum)) {
-                selectedFamilyTables = selectedFamilyTables.filter(t => t !== tableNum); // Remove the table if already selected
+                selectedFamilyTables = selectedFamilyTables.filter(t => t !== tableNum);
             } else {
-                selectedFamilyTables.push(tableNum); // Add the table if not selected
+                selectedFamilyTables.push(tableNum);
             }
         } else if (sector === 'couple') {
             if (selectedCoupleTables.includes(tableNum)) {
-                selectedCoupleTables = selectedCoupleTables.filter(t => t !== tableNum); // Remove the table if already selected
+                selectedCoupleTables = selectedCoupleTables.filter(t => t !== tableNum);
             } else {
-                selectedCoupleTables.push(tableNum); // Add the table if not selected
+                selectedCoupleTables.push(tableNum);
             }
         }
 
@@ -57,6 +57,20 @@ function updateSelectedTablesTextArea() {
 form.addEventListener('submit', (event) => {
     event.preventDefault();
 
+    // Validate form inputs
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const date = document.getElementById('date')?.value || new Date().toISOString().split('T')[0];
+    const time = document.getElementById('time')?.value || new Date().toLocaleTimeString();
+
+    // Validate selected tables
+    if (selectedFamilyTables.length === 0 && selectedCoupleTables.length === 0) {
+        alert('Please select at least one table.');
+        return;
+    }
+
     // Update booking counts based on the selected tables
     familyBookings += selectedFamilyTables.length;
     coupleBookings += selectedCoupleTables.length;
@@ -69,59 +83,31 @@ form.addEventListener('submit', (event) => {
     // Generate a random booking ID
     const bookingID = Math.floor(Math.random() * 1000000);
 
-    // Get customer name
-    const customerName = document.getElementById('name').value;
-
     // Get restaurant name and location
     const restaurantName = document.querySelector('.cafe-name').textContent.trim();
     const restaurantLocation = document.querySelector('.location').textContent.trim();
 
-    // Get date and time
-    const bookingDate = document.getElementById('date').value;
-    const bookingTime = document.getElementById('time').value;
-
-    // Redirect to confirmation page with query parameters
-    window.location.href = `confirmation.html?customerName=${encodeURIComponent(customerName)}&bookingID=${bookingID}&restaurantName=${encodeURIComponent(restaurantName)}&restaurantLocation=${encodeURIComponent(restaurantLocation)}&selectedTables=${encodeURIComponent(selectedTablesTextArea.value)}&bookingDate=${encodeURIComponent(bookingDate)}&bookingTime=${encodeURIComponent(bookingTime)}`;
+    // Redirect to confirmation page with all details
+    window.location.href = `confirmation.html?customerName=${encodeURIComponent(name)}&bookingID=${bookingID}&restaurantName=${encodeURIComponent(restaurantName)}&restaurantLocation=${encodeURIComponent(restaurantLocation)}&selectedTables=${encodeURIComponent(selectedTablesTextArea.value)}&bookingDate=${encodeURIComponent(date)}&bookingTime=${encodeURIComponent(time)}`;
 });
 
+// Optional: Date and Time picker initialization
 document.addEventListener('DOMContentLoaded', function() {
-    initializeDarkMode();
-    flatpickr("#time", {
-        enableTime: true,
-        noCalendar: true,
-        dateFormat: "H:i",
-        time_24hr: true
-    });
-});
-// filepath: /Public/javascript/booking.js
-document.getElementById('bookingForm').addEventListener('submit', function (event) {
-    event.preventDefault();
+    // Add date picker if not already present
+    if (document.getElementById('date')) {
+        flatpickr("#date", {
+            dateFormat: "Y-m-d",
+            minDate: "today"
+        });
+    }
 
-    const booking = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        address: document.getElementById('address').value,
-        date: document.getElementById('date').value,
-        time: document.getElementById('time').value,
-        selectedTables: document.getElementById('selectedTables').value
-    };
-
-    fetch('/api/book', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(booking)
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-        // Optionally, redirect to a confirmation page
-        window.location.href = '/confirmation.html';
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Booking failed. Please try again.');
-    });
+    // Add time picker if not already present
+    if (document.getElementById('time')) {
+        flatpickr("#time", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true
+        });
+    }
 });
