@@ -33,3 +33,12 @@ function initializeDarkMode() {
         console.log("Dark mode toggled. Current state:", isDarkModeEnabled);
     });
 }
+
+// Dark mode functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+});
