@@ -77,3 +77,4 @@ PlAterA is a seamless reserve dining application made for a full-stack developme
 
 
 
+"This is my awesome project!" 
