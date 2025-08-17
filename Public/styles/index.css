@@ -1,0 +1,103 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'League Spartan', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Public/websiteimages/frontpage.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  text-align: center;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 200px;
+  font-weight: bolder;
+  color: #fcfcfc;
+  margin-bottom: 20px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #000000;
+  background-color: #f9c56a;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.button:active {
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) { /* Large Screens (Monitors) */
+  h1 {
+    font-size: 180px;
+  }
+
+  .button {
+    font-size: 35px;
+    padding: 8px 28px;
+  }
+}
+
+@media (max-width: 1024px) { /* Tablets */
+  h1 {
+    font-size: 150px;
+  }
+
+  .button {
+    font-size: 30px;
+    padding: 8px 25px;
+  }
+}
+
+@media (max-width: 768px) { /* Mobile (Portrait) */
+  body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  h1 {
+    font-size: 100px;
+  }
+
+  .button {
+    font-size: 20px;
+    padding: 6px 20px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) { /* Small Phones */
+  h1 {
+    font-size: 80px;
+  }
+
+  .button {
+    font-size: 16px;
+    padding: 5px 15px;
+  }
+}

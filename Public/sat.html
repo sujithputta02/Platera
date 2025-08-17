@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlAterA. - Sattvam</title>
+  <link rel="stylesheet" href="/Public/styles/darkmode.css">
+    <link rel="stylesheet" href="/Public/styles/mallew.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+  </style>
+  <link rel="icon" href="/Public/websiteimages/platera favicon.png">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="navbar">
+      <div class="left-section">
+        <div id="userInitials" class="gradient-circle"></div>
+        <a href="/Public/homepage.html" class="title" title="Dashboard">PlAterA.</a>
+      </div>
+      <div class="cafe-name">Sattvam.</div>
+    </div>
+  </header>
+
+  <!-- Restaurant Info Section -->
+  <section class="restaurant-info">
+    <div class="info-container">
+      <h2 class="restaurant-title">Sattvam.</h2>
+      <p class="cuisine"> Chinese, Continental</p>
+      <p class="location">Location: Malleshwaram, Bangalore.</p>
+      <p class="timings">Opens at 12:00am – 3:30pm</p>
+      <div class="rating">
+        <div class="rating-score"><a href="" title="Dining Ratings" class="score">4.3★</a></div>
+        <div class="rating-text">2,645 users Dining Ratings</div>
+      </div>
+    </div>
+    <div class="image-container">
+      <img src="/Public/websiteimages/satt.jpg" alt="Restaurant Image" class="restaurant-image">
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="booking">
+    <h2>Let’s have a great feast.</h2>
+    <p>Fill and book your table given below</p>
+    <div class="registration-form">
+      <div class="container">
+        <h2 class="head">Restaurant Table Booking</h2>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label>Select a Table:</label>
+                <div class="table-selection">
+                    <!-- Family Sector -->
+                    <div>
+                        <h3>Family Tables (5 Seats)</h3>
+                        <p>Total Slots: 5 | Booked: <span id="familyBooked">0</span></p>
+                        <div class="sector">
+                            <div class="table" data-sector="family" data-table="1">
+                                <span>1</span>
+                            </div>
+                            <div class="table" data-sector="family" data-table="2">
+                                <span>2</span>
+                            </div>
+                            <div class="table" data-sector="family" data-table="3">
+                                <span>3</span>
+                            </div>
+                            <div class="table" data-sector="family" data-table="4">
+                                <span>4</span>
+                            </div>
+                            <div class="table" data-sector="family" data-table="5">
+                                <span>5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Couple Sector -->
+                    <div>
+                        <h3>Couple Tables (5 Seats)</h3>
+                        <p>Total Slots: 5 | Booked: <span id="coupleBooked">0</span></p>
+                        <div class="sector">
+                            <div class="table" data-sector="couple" data-table="1">
+                                <span>1</span>
+                            </div>
+                            <div class="table" data-sector="couple" data-table="2">
+                                <span>2</span>
+                            </div>
+                            <div class="table" data-sector="couple" data-table="3">
+                                <span>3</span>
+                            </div>
+                            <div class="table" data-sector="couple" data-table="4">
+                                <span>4</span>
+                            </div>
+                            <div class="table" data-sector="couple" data-table="5">
+                                <span>5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slots-info">
+              <h3>Total Slots Available: <span id="totalSlots">10</span></h3>
+              <h3>Slots Booked: <span id="slotsBooked">0</span></h3>
+            </div>
+
+            <textarea class="selected-tables-textarea" id="selectedTables" readonly placeholder="Your selected tables will appear here..."></textarea>
+            
+            <button type="submit">Book Table</button>
+        </form>
+      </div>
+    </div>
+    <script src="/Public/javascript/booking.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          flatpickr("#time", {
+              enableTime: true,
+              noCalendar: true,
+              dateFormat: "H:i",
+              time_24hr: true
+          });
+      });
+    </script>
+  </section>
+  <footer class="footer">
+    <h6>&copy; PlAterA 2025. All Rights Reserved.</h6>
+  </footer>
+  <script src="/Public/javascript/homepage.js"></script>
+  <script src="/Public/javascript/darkmode.js"></script>
+</body>
+</html>
