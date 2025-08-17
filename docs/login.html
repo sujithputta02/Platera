@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlAterA.- Login</title>
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="icon" href="websiteimages/platera favicon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">PlAterA.</h1>
+        <div class="login-box">
+            <h2>Login.</h2>
+            <form id="loginForm">
+                <label for="email">Email-id.</label>
+                <input type="email" id="email" placeholder="ex:- sat@gmail.com" required>
+                
+                <label for="password">Password.</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <span class="toggle-password" id="togglePassword">
+                        <img src="websiteimages/passicon-removebg-preview.png" alt="Toggle Password">
+                    </span>
+                </div>
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <p class="new-user">New user? <a href="#" id="createAccount">Create a account</a></p>
+        </div>
+    </div>
+
+    <!-- Loading Animation -->
+    <div id="loading" class="loading">
+        <div class="cloche-container">
+            <img src="websiteimages/cloche-removebg-preview.png" alt="Cloche" class="cloche" />
+        </div>
+    </div>
+
+    <script src="javascript/login.js"></script>
+</body>
+</html>

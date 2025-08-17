@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlAterA . - Dashboard</title>
+    <link rel="stylesheet" href="styles/homepage.css">
+    <link rel="icon" href="websiteimages/platera favicon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img class="icon1" src="websiteimages/dashboard_icon-removebg-preview2.png" alt="Dashboard" id="dashboardIcon">
+                <div class="logo-circle" id="userInitials">A</div>
+                <a href="homepage.html" class="title">PlAterA.</a>
+            </div>
+            <nav>
+                <a href="homepage.html" title="Home">Home</a>
+                <a href="book.html" title="Book a Table">Book a Table</a>
+                <a href="#" id="menuLink" title="Menu">Menu</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search">
+                <button id="searchButton">
+                    <img src="websiteimages/searchicon-removebg-preview.png" alt="Search">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="mainContent">
+        <div class="hero">
+            <div class="hero-text">Serving Seamless Dining, One Table at a Time.</div>
+        </div>
+        <div class="featured-image">
+            <div class="about-us-content">
+                <span>About Us</span>
+                <p>
+                    <b>PlAterA.</b> is committed to delivering a seamless dining experience by connecting customers with available tables
+                    in busy restaurants. Book your table effortlessly and enjoy your meal with ease.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <main id="menuContent" style="display: none;">
+        <div class="menu-grid">
+            <div class="menu-item" data-menu="menu1">
+                <img src="websiteimages/ramebgboxmen.png" alt="Menu 1">
+                <div class="menu-content">
+                    <h3>The Rameshwaram Cafe.</h3>
+                    <p>Delicious South Indian Cuisine</p>
+                </div>
+            </div>
+            <div class="menu-item" data-menu="menu2">
+                <img src="websiteimages/THEPUMPHOUSEbg.png" alt="Menu 2">
+                <div class="menu-content">
+                    <h3>The Pump House.</h3>
+                    <p>Exquisite Continental Dishes</p>
+                </div>
+            </div>
+            <div class="menu-item" data-menu="menu3">
+                <img src="websiteimages/1947bg.png" alt="Menu 3">
+                <div class="menu-content">
+                    <h3>1947 Restuarant.</h3>
+                    <p>Authentic Italian Cuisine</p>
+                </div>
+            </div>
+            <div class="menu-item" data-menu="menu4">
+                <img src="websiteimages/mgfbgm.png" alt="Menu 4">
+                <div class="menu-content">
+                    <h3>Meghana Foods.</h3>
+                    <p>Traditional Chinese Dishes</p>
+                </div>
+            </div>
+            <div class="menu-item" data-menu="menu5">
+                <img src="websiteimages/ICHBG.png" alt="Menu 5">
+                <div class="menu-content">
+                    <h3>Indian Coffee House.</h3>
+                    <p>Sumptuous Indian Thali</p>
+                </div>
+            </div>
+            <div class="menu-item" data-menu="menu6">
+                <img src="websiteimages/twrbgi.png" alt="Menu 6">
+                <div class="menu-content">
+                    <h3>The White Room.</h3>
+                    <p>Delightful Japanese Sushi</p>
+                </div>
+            </div>
+            <div class="menu-item" data-menu="menu7">
+                <img src="websiteimages/halimabg.png" alt="Menu 7">
+                <div class="menu-content">
+                    <h3>Hallimane.</h3>
+                    <p>Hearty American Burgers</p>
+                </div>
+            </div>
+            <div class="menu-item" data-menu="menu8">
+                <img src="websiteimages/pizstpbgi.png" alt="Menu 8">
+                <div class="menu-content">
+                    <h3>Pizza Stop.</h3>
+                    <p>Fresh Mediterranean Salads</p>
+                </div>
+            </div>
+            <div class="menu-item" data-menu="menu9">
+                <img src="websiteimages/satvbgi.png" alt="Menu 9">
+                <div class="menu-content">
+                    <h3>Sattvam.</h3>
+                    <p>Delicious Mexican Tacos</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="menuDetails" style="display: none;">
+        <div id="menuDetailsContent"></div>
+        <br>
+        <button id="bookTable">Visit Page</button>
+    </main>
+
+    <footer class="footer">
+        <h6>&copy; PlAterA 2025. All Rights Reserved.</h6>
+    </footer>
+
+    <div class="responsive-bar" id="responsiveBar">
+        <div class="profile-section">
+            <div class="logo-circle" id="userInitials">A</div>
+            <br>
+            <h2 id="accountName"><center><strong>Hi, Account Name</strong></center></h2>
+            <button class="dropdown-button" id="bookedButton">Completed Bookings</button>
+            <div class="dropdown-content" id="bookedContent">
+                <p>Not completed booking yet.</p>
+            </div>
+            <button class="dropdown-button" id="upcomingButton">Upcoming Bookings</button>
+            <div class="dropdown-content" id="upcomingContent">
+                <p>No upcoming bookings.</p>
+            </div>
+            <br>
+            <br>
+            <button id="darkModeToggle">Dark Mode</button>
+            <button id="logoutButton">Logout</button> <!-- Added logout button -->
+        </div>
+    </div>
+    <script src="javascript/homepage.js"></script>
+    <script src="javascript/resbar.js"></script>
+    <script src="javascript/profile.js"></script>
+    <script src="javascript/darkmode.js"></script>
+</body>
+</html>

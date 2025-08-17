@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlAterA - Book a Table</title>
+    <link rel="stylesheet" href="styles/book.css">
+    <link rel="icon" href="websiteimages/platera favicon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div id="userInitials" class="gradient-circle"></div>
+        </div>
+        <div class="header-center">
+            <a href="homepage.html" class="title" title="Dashboard">PlAterA.</a>
+        </div>
+        <div class="header-right">
+            <h2>Book a Table.</h2>
+        </div>
+    </header>
+
+    <div class="instructions">
+        <h1>Instructions.</h1>
+        <p style="color: white;">1. You can book a table at a time.</p>
+        <p style="color: white;">2. You cannot book two tables at a time.</p>
+        <p style="color: white;">3. You can book a table when the previous feast is done.</p>
+        <p style="color: white;">4. You need to be at the restaurant 5 minutes before.</p>
+        <p style="color: white;">5. Your order will be cancelled if you are not able to reach on time.</p>
+    </div>
+
+    <div class="main-content">
+        <h2>Choose your place to have a great feast.</h2>
+        <div class="dropdown">
+            <select onchange="redirectToPage(this)">
+                <option value="">JP Nagar</option>
+                <option value="ramecfe.html">The Rameshwaram Cafe</option>
+                <option value="pumhuse.html">The Pump House</option>
+                <option value="1947.html">1947 Restaurant</option>
+            </select>
+        </div>
+        <div class="dropdown">
+            <select onchange="redirectToPage(this)">
+                <option value="">MG Road</option>
+                <option value="megfd.html">Meghana Foods</option>
+                <option value="indcfe.html">Indian Coffee House</option>
+                <option value="whiroo.html">The White Room</option>
+            </select>
+        </div>
+        <div class="dropdown">
+            <select onchange="redirectToPage(this)">
+                <option value="">Malleshwaram</option>
+                <option value="halli.html">Hallimane</option>
+                <option value="pizstp.html">Pizza Stop</option>
+                <option value="sat.html">Sattvam</option>
+            </select>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h6>&copy; PlAterA 2025. All Rights Reserved.</h6>
+    </footer>
+
+    <script src="javascript/homepage.js"></script>
+    <script src="javascript/book.js"></script>
+    <script src="javascript/darkmode.js"></script>
+</body>
+</html>
