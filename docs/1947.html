@@ -12,93 +12,98 @@
 </head>
 <body>
     <header>
-        <div class="header-left">
-            <div id="userInitials" class="gradient-circle"></div>
-        </div>
-        <div class="header-center">
-            <a href="homepage.html" class="title" title="Dashboard">PlAterA.</a>
-        </div>
-        <div class="header-right">
-            <h2>1947 Restaurant</h2>
+        <div class="navbar">
+            <div class="left-section">
+                <div id="userInitials" class="gradient-circle"></div>
+                <a href="homepage.html" class="title" title="Dashboard">PlAterA.</a>
+            </div>
+            <div class="cafe-name">1947 Restaurant.</div>
         </div>
     </header>
 
-    <div class="restaurant-info">
-        <div class="restaurant-image-container">
+    <section class="restaurant-info">
+        <div class="info-container">
+            <h2 class="restaurant-title">1947 Restaurant.</h2>
+            <p class="cuisine">Italian, European</p>
+            <p class="location">Location: JP Nagar, Bangalore.</p>
+            <p class="timings">Opens at 12 noon – 3:00 pm, 6:00 pm – 11:00 pm</p>
+            <div class="rating">
+                <div class="rating-score"><a href="" title="Dining Ratings" class="score">4.2★</a></div>
+                <div class="rating-text">1,024 users Dining Ratings</div>
+            </div>
+        </div>
+        <div class="image-container">
             <img src="websiteimages/1947.jpeg" alt="Restaurant Image" class="restaurant-image">
         </div>
-        <div class="restaurant-details">
-            <h1>1947 Restaurant</h1>
-            <p class="cuisine">Authentic Italian Cuisine</p>
-            <p class="location">📍 JP Nagar, Bangalore</p>
-            <p class="description">
-                Experience the authentic flavors of Italy at 1947 Restaurant. Our chefs bring traditional Italian recipes 
-                to life with the finest ingredients and time-honored cooking techniques.
-            </p>
-            <div class="highlights">
-                <span class="highlight">🍕 Wood-fired Pizzas</span>
-                <span class="highlight">🍝 Fresh Pasta</span>
-                <span class="highlight">🍷 Fine Wines</span>
-                <span class="highlight">🌿 Fresh Herbs</span>
+    </section>
+
+    <section class="booking">
+        <h2>Let’s have a great feast.</h2>
+        <p>Fill and book your table given below</p>
+        <div class="registration-form">
+            <div class="container">
+                <h2 class="head">Restaurant Table Booking</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time:</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Select a Table:</label>
+                        <div class="table-selection">
+                            <div>
+                                <h3>Family Tables (5 Seats)</h3>
+                                <p>Total Slots: <span id="totalSlots">10</span> | Booked: <span id="familyBooked">0</span></p>
+                                <div class="sector">
+                                    <div class="table" data-sector="family" data-table="1"><span>1</span></div>
+                                    <div class="table" data-sector="family" data-table="2"><span>2</span></div>
+                                    <div class="table" data-sector="family" data-table="3"><span>3</span></div>
+                                    <div class="table" data-sector="family" data-table="4"><span>4</span></div>
+                                    <div class="table" data-sector="family" data-table="5"><span>5</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3>Couple Tables (5 Seats)</h3>
+                                <p>Booked: <span id="coupleBooked">0</span></p>
+                                <div class="sector">
+                                    <div class="table" data-sector="couple" data-table="1"><span>1</span></div>
+                                    <div class="table" data-sector="couple" data-table="2"><span>2</span></div>
+                                    <div class="table" data-sector="couple" data-table="3"><span>3</span></div>
+                                    <div class="table" data-sector="couple" data-table="4"><span>4</span></div>
+                                    <div class="table" data-sector="couple" data-table="5"><span>5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slots-info">
+                        <h3>Slots Booked: <span id="slotsBooked">0</span></h3>
+                    </div>
+                    <textarea class="selected-tables-textarea" id="selectedTables" readonly placeholder="Your selected tables will appear here..."></textarea>
+                    <button type="submit">Book Table</button>
+                </form>
             </div>
         </div>
-    </div>
-
-    <div class="booking-section">
-        <h2>Book Your Table</h2>
-        <form id="bookingForm" class="booking-form">
-            <div class="form-group">
-                <label for="customerName">Full Name</label>
-                <input type="text" id="customerName" name="customerName" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="phoneNumber">Phone Number</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="bookingDate">Preferred Date</label>
-                <input type="date" id="bookingDate" name="bookingDate" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="bookingTime">Preferred Time</label>
-                <select id="bookingTime" name="bookingTime" required>
-                    <option value="">Select Time</option>
-                    <option value="12:00">12:00 PM</option>
-                    <option value="12:30">12:30 PM</option>
-                    <option value="13:00">1:00 PM</option>
-                    <option value="13:30">1:30 PM</option>
-                    <option value="19:00">7:00 PM</option>
-                    <option value="19:30">7:30 PM</option>
-                    <option value="20:00">8:00 PM</option>
-                    <option value="20:30">8:30 PM</option>
-                    <option value="21:00">9:00 PM</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="guests">Number of Guests</label>
-                <select id="guests" name="guests" required>
-                    <option value="">Select Guests</option>
-                    <option value="1">1 Person</option>
-                    <option value="2">2 People</option>
-                    <option value="3">3 People</option>
-                    <option value="4">4 People</option>
-                    <option value="5">5 People</option>
-                    <option value="6">6 People</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="specialRequests">Special Requests (Optional)</label>
-                <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Any special requests or dietary requirements..."></textarea>
-            </div>
-            
-            <button type="submit" class="book-button">Book Table</button>
-        </form>
-    </div>
+    </section>
 
     <footer class="footer">
         <h6>&copy; PlAterA 2025. All Rights Reserved.</h6>
