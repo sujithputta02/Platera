@@ -134,16 +134,6 @@ This is a mini project developed for educational purposes, demonstrating:
 
 This project is created for educational purposes as part of a full-stack development course.
 
-## 👥 Contributing
-
-This is a personal project developed as part of a mini project requirement. Contributions are not currently being accepted.
-
-## 📞 Support
-
-For questions or support regarding this project, please refer to the project documentation or contact the developer.
-
----
-
 ## 📸 Application Screenshots
 
 ### Landing page
