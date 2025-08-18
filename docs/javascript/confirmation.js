@@ -20,16 +20,48 @@ document.getElementById('bookingTime').textContent = bookingTime;
 // Generate QR code
 const qrCodeData = `Customer Name: ${customerName}\nBooking ID: ${bookingID}\nRestaurant Name: ${restaurantName}\nRestaurant Location: ${restaurantLocation}\nTable Numbers: ${selectedTables}\nBooking Date: ${bookingDate}\nBooking Time: ${bookingTime}`;
 
-// Wait for DOM to be ready before generating QR code
-document.addEventListener('DOMContentLoaded', function() {
-    if (document.getElementById('qrcode')) {
-        const qrcode = new QRCode(document.getElementById("qrcode"), {
-            text: qrCodeData,
-            width: 128,
-            height: 128
-        });
+// Generate QR code (robust to script load order with network fallback)
+(function () {
+    const MAX_TRIES = 40; // ~2s
+    let tries = 0;
+
+    function renderQRCode() {
+        const container = document.getElementById('qrcode');
+        if (!container) {
+            setTimeout(renderQRCode, 50);
+            return;
+        }
+
+        if (window.QRCode) {
+            container.innerHTML = '';
+            new QRCode(container, {
+                text: qrCodeData,
+                width: 128,
+                height: 128,
+                colorDark: '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.M
+            });
+            return;
+        }
+
+        tries += 1;
+        if (tries < MAX_TRIES) {
+            setTimeout(renderQRCode, 50);
+        } else {
+            // Fallback: use a hosted QR image generator
+            const img = document.createElement('img');
+            img.alt = 'QR Code';
+            img.width = 128;
+            img.height = 128;
+            img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=128x128&data=' + encodeURIComponent(qrCodeData);
+            container.innerHTML = '';
+            container.appendChild(img);
+        }
     }
-});
+
+    renderQRCode();
+})();
 
 // Handle navigation back to homepage
 document.getElementById('goToHomepage').addEventListener('click', () => {
@@ -207,12 +239,25 @@ document.getElementById('printInvoice').addEventListener('click', () => {
             </div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
             <script>
-                const qrCodeData = \`${qrCodeData}\`;
-                new QRCode(document.getElementById("invoiceQRCode"), {
-                    text: qrCodeData,
-                    width: 128,
-                    height: 128
-                });
+                (function(){
+                    const data = \`${qrCodeData}\`;
+                    function render() {
+                        var container = document.getElementById('invoiceQRCode');
+                        if (!container) return;
+                        if (window.QRCode) {
+                            new QRCode(container, { text: data, width: 128, height: 128 });
+                        } else {
+                            // Fallback to hosted image
+                            var img = document.createElement('img');
+                            img.alt = 'QR Code';
+                            img.width = 128; img.height = 128;
+                            img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=128x128&data=' + encodeURIComponent(data);
+                            container.appendChild(img);
+                        }
+                    }
+                    // Delay a tick for the CDN to load
+                    setTimeout(render, 100);
+                })();
             </script>
         </body>
         </html>
